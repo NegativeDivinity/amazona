@@ -5,8 +5,8 @@ html {
 
 body {
   margin: 0;
-  height: 100vh;
   font-size: 1.6rem;
+  height: 100vh;
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -24,7 +24,7 @@ body {
       'footer';
   grid-template-columns: 1fr;
   grid-template-rows: 5rem 1fr 5rem;
-  height: 100%;
+  height: 100vh;
 }
 
 header {
@@ -35,6 +35,7 @@ header {
 main {
   grid-area: main;
   padding: 1rem;
+  height: 100%;
 }
 
 footer {
@@ -80,6 +81,7 @@ input, select, textarea, button {
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 2rem 0;
 }
 
 button {
@@ -97,6 +99,10 @@ button.primary {
 
 button.block {
   width: 100%;
+}
+
+button.small {
+  font-size: 1.2rem;
 }
 
 /* Header */
@@ -226,6 +232,11 @@ img.large {
   background-color: #ffe0e0e0;
 }
 
+.alert-success {
+  color: #20a020;
+  background-color: #eeffe0;
+}
+
 /* Form */
 .form {
   max-width: 60rem;
@@ -236,11 +247,11 @@ img.large {
   display: flex;
   flex-direction: column;
   margin: 1rem;
+  width: 100%;
 }
 
 .form > label {
   margin: 1rem 0;
-  display: block;
 }
 
 /* Dropdown */
@@ -264,4 +275,42 @@ img.large {
 
 .dropdown:hover .dropdown-content{
   display: block;
+}
+
+/* Checkout */
+.checkout-steps > a > div {
+  border-top: 0.3rem #c0c0c0 solid;
+  color: #c0c0c0;
+  flex: 1;
+  padding: 1rem;
+  font-weight: bold;
+}
+
+.checkout-steps > a > div.active {
+  border-top-color: #f08000;
+  color: #f08000;
+}
+
+.checkout-steps > a > div.active:hover {
+  opacity: 0.6;
+}
+
+/* Table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table tbody tr:nth-of-type(odd) {
+  background-color: #f4f4f4;
+}
+
+.table td, .table th {
+  text-align: left;
+  border: 0.1rem solid #e4e4e4;
+  padding: 0.5rem;
+}
+
+.table button {
+  margin: 0 0.2rem;
 }

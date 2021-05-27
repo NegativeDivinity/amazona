@@ -7,8 +7,13 @@ import CartScreen from './screens/CartScreen';
 
 // Screen Imports
 import HomeScreen from './screens/HomeScreen';
+import OrderHistoryScreen from './screens/OrderHistoryScreen';
+import OrderScreen from './screens/OrderScreen';
+import PaymentScreen from './screens/PaymentScreen';
+import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import ProductScreen from './screens/ProductScreen';
 import RegisterScreen from './screens/RegisterScreen';
+import ShippingScreen from './screens/ShippingScreen';
 import SignInScreen from './screens/SignInScreen';
 
 
@@ -47,7 +52,12 @@ function App() {
                                 {userInfo.name} <i className = 'fa fa-caret-down'></i> 
                               </Link>
                               <ul className = 'dropdown-content'>
-                                <Link to = '#signout' onClick = {signoutHandler}>Sign Out</Link>
+                                <li>
+                                  <Link to = '/orderhistory'>Order History</Link>
+                                </li>
+                                <li>
+                                  <Link to = '#signout' onClick = {signoutHandler}>Sign Out</Link>
+                                </li>
                               </ul>
                             </div>
                           ) :
@@ -62,6 +72,11 @@ function App() {
                 <Route path = '/product/:id' component = {ProductScreen} />
                 <Route path = '/signin' component = {SignInScreen} />
                 <Route path = '/register' component = {RegisterScreen} />
+                <Route path = '/shipping' component = {ShippingScreen} />
+                <Route path = '/payment' component = {PaymentScreen} />
+                <Route path = '/placeorder' component = {PlaceOrderScreen} />
+                <Route path = '/order/:id' component = {OrderScreen} />
+                <Route path = '/orderhistory' component = {OrderHistoryScreen} />
                 <Route exact path = '/' component = {HomeScreen} /> 
               </main>
               <footer className = 'row center'>
