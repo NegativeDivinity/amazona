@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon backend/server.js",
+    "server": "serve -s build",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "cd client && npm install && npm run build",
@@ -32,7 +32,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.11",
     "multer": "^1.4.2",
-    "node-pre-gyp": "^0.17.0"
+    "node-pre-gyp": "^0.17.0",
+    "serve": "^11.3.2"
   },
   "engines": {
     "node": "12.4.0",
