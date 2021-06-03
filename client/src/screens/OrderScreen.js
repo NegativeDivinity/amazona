@@ -56,7 +56,7 @@ function OrderScreen( props ) {
                 }
             }
         }
-    }, [dispatch, orderId, order, sdkReady, orderDeliver]);
+    }, [dispatch, orderId, order, sdkReady, successDeliver]);
 
     const successPaymentHandler = (paymentResult) => {
         dispatch(payOrder(order, paymentResult));
