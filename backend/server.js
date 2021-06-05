@@ -13,7 +13,9 @@ app.use(express.urlencoded({ extended: true }))
 
 // mongodb://localhost/amazona
 
-mongoose.connect(process.env.MONGODB_URL || 'mongodb+srv://amazon:Light4162!@cluster0.sevox.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+// mongodb+srv://amazon:Light4162!@cluster0.sevox.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
+mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/amazona', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
