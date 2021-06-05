@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { signout } from './actions/userActions';
 import PrivateRoute from './components/PrivateRoute';
 import AdminRoute from './components/AdminRoute';
