@@ -15,6 +15,8 @@ app.use(express.urlencoded({ extended: true }))
 
 // mongodb+srv://amazon:Batman0202@cluster0.sevox.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
+// mongodb+srv://amazon:Batman0202@cluster0.sevox.mongodb.net/amazon-fake?retryWrites=true&w=majority
+
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/amazona', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
