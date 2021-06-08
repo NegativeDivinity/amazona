@@ -30,6 +30,7 @@ body {
 header {
   grid-area: header;
   background-color: #203040;
+  height: 8vh;
 }
 
 main {
@@ -42,6 +43,7 @@ footer {
   grid-area: footer;
   background-color: #203040;
   color: #ffffff;
+  padding: 0;
 }
 
 /* Common Styles */
@@ -330,4 +332,17 @@ img.large {
 /* Carousel */
 .carousel .slide img {
   max-width: 30rem;
+}
+
+/* Search */
+.search button {
+  border-radius: 0 0.5rem 0.5rem 0;
+  border-right: none;
+  margin-right: 0.5rem;
+}
+
+.search input {
+  border-radius: 0.5rem 0 0 0.5rem;
+  border-right: none;
+  margin-left: 0.5rem;
 }
