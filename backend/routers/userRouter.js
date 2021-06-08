@@ -4,11 +4,17 @@ import data from '../data.js';
 import User from '../models/userModel.js';
 import bcrypt from 'bcryptjs';
 import {generateToken, isAdmin, isAuth} from '../utils.js';
+import { Restaurant } from '@material-ui/icons';
 
 const userRouter = express.Router();
 
+userRouter.get('/top-sellers', expressAsyncHandler(async (req, res) => {
+    const topSellers = await User.find({isSeller: true}).sort({'seller.rating':-1}).limit(3);
+    res.send(topSellers);
+}))
+
 userRouter.get('/seed', expressAsyncHandler(async (req, res) => {
-    // await User.remove({}); // Will remove all before creating users in data
+    //await User.remove({}); // Will remove all before creating users in data
     const createdUsers = await User.insertMany(data.users);
     res.send({ createdUsers });
 }));

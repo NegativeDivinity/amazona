@@ -43,7 +43,6 @@ const data = {
             rating:4.0,
             numReviews: 17,
             description: 'high quality product',
-            seller: '60ad68eb5bd7281a44f5c1ce',
         },
         {
             name:'Lacoste Slim Shirt',
@@ -55,7 +54,6 @@ const data = {
             rating:4.5,
             numReviews: 10,
             description: 'high quality product',
-            seller: '60ad68eb5bd7281a44f5c1ce',
         },
         {
             name:'Nike Slim Pant',
@@ -67,7 +65,6 @@ const data = {
             rating:4.5,
             numReviews: 14,
             description: 'high quality product',
-            seller: '60ad68eb5bd7281a44f5c1ce',
         },
         {
             name:'Puma Slim Pant',
@@ -79,7 +76,6 @@ const data = {
             rating:4.5,
             numReviews: 10,
             description: 'high quality product',
-            seller: '60ad68eb5bd7281a44f5c1ce',
         },
         {
             name:'Adidas Fit Pant',
@@ -91,7 +87,6 @@ const data = {
             rating:4.5,
             numReviews: 15,
             description: 'high quality product',
-            seller: '60ad68eb5bd7281a44f5c1ce',
         },
     ],
 };
