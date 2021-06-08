@@ -35,6 +35,7 @@ const orderSchema = new Schema({
     taxPrice: {type: Number, required: true,},
     totalPrice: {type: Number, required: true,},
     user: {type: Schema.Types.ObjectId, ref: 'User', required: true},
+    seller: { type: Schema.Types.ObjectId, ref: 'User'},
     isPaid: {type: Boolean, default: false},
     paidAt: {type: Date},
     isDelivered: {type: Boolean, default: false},

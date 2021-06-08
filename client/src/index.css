@@ -141,6 +141,10 @@ header a {
   align-items: flex-start;
 }
 
+.row.start {
+  justify-content: flex-start;
+}
+
 .col-1 {
   flex: 1 1 25rem;
 }
@@ -149,9 +153,17 @@ header a {
   flex: 2 1 50rem;
 }
 
+.col-3 {
+  flex: 3 1 75rem;
+}
+
 .min-30 {
   max-width: 30rem;
   width: 100%;
+}
+
+.p-1 {
+  padding: 1rem;
 }
 
 /* Images */

@@ -49,7 +49,7 @@ function SignInScreen(props) {
                     />
                 </div>
                 <div>
-                    <label htmlFor="password">Email address</label>
+                    <label htmlFor="password">Password</label>
                     <input 
                         type="password" 
                         id = 'password' 
