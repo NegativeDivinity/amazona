@@ -2,6 +2,15 @@ import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
+const reviewSchema = new Schema({
+    name: {type: String, required: true },
+    comment: {type: String, required: true },
+    rating: {type: Number, required: true },
+},
+{
+    timestamps: true,
+})
+
 const productSchema = new Schema({
     name: {type: String, required: true, unique: true},
     seller: {type: Schema.Types.ObjectId, ref: 'User'},
@@ -13,6 +22,7 @@ const productSchema = new Schema({
     countInStock: {type: Number, required: true},
     rating: {type: Number, required: true},
     numReviews: {type: Number, required: true},
+    reviews: [reviewSchema],
 },
 {
     timestamps: true,

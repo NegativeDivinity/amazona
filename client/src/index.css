@@ -168,6 +168,49 @@ header a {
   padding: 1rem;
 }
 
+/* Aside */
+aside {
+  position: fixed;
+  width: 30rem;
+  height: 100%;
+  background-color: #efefef;
+  z-index: 1000;
+  transform: translateX(-30rem);
+  transition: all 1s;
+}
+
+aside.open {
+  transform: translateX(0);
+}
+
+button.open-sidebar {
+  font-size: 3rem;
+  padding: 0.2rem 0.5rem;
+  margin: 0 0.5rem;
+  background: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+button.open-sidebar:hover {
+  border-color: #ffffff;
+}
+
+aside ul {
+  padding: 0;
+  list-style: none;
+}
+
+aside li {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+button.close-sidebar {
+  padding: 0.3rem 0.8rem;
+}
+
 /* Images */
 img {
   border-radius: 0.5rem;
@@ -292,6 +335,10 @@ img.large {
 }
 
 /* Checkout */
+.checkout-steps {
+  padding-top: 1rem;
+}
+
 .checkout-steps > a > div {
   border-top: 0.3rem #c0c0c0 solid;
   color: #c0c0c0;
@@ -339,10 +386,21 @@ img.large {
   border-radius: 0 0.5rem 0.5rem 0;
   border-right: none;
   margin-right: 0.5rem;
+  padding: 5px;
 }
 
 .search input {
   border-radius: 0.5rem 0 0 0.5rem;
   border-right: none;
   margin-left: 0.5rem;
+  padding: 5px;
+}
+
+.active {
+  font-weight: bold;
+}
+
+/* Extra Padding */
+.pad {
+  padding-top: 2rem;
 }
