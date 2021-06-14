@@ -4,7 +4,6 @@ import data from '../data.js';
 import User from '../models/userModel.js';
 import bcrypt from 'bcryptjs';
 import {generateToken, isAdmin, isAuth} from '../utils.js';
-import { Restaurant } from '@material-ui/icons';
 
 const userRouter = express.Router();
 
