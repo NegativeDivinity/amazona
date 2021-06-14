@@ -23,7 +23,7 @@ function Product( props ) {
                         $ {product.price}
                     </div>
                     <div>
-                        <Link to = {`/seller/${product.seller.seller._id}`}>{product.seller.seller.name}</Link>
+                        <Link to = {`/seller/${product.seller._id}`}>{product.seller.seller.name}</Link>
                     </div>
                 </div>
             </div>
