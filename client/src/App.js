@@ -30,6 +30,9 @@ import SearchScreen from './screens/SearchScreen';
 import { listProductCategories } from './actions/productActions';
 import LoadingBox from './components/LoadingBox';
 import MessageBox from './components/MessageBox';
+import DashboardScreen from './screens/DashboardScreen';
+import SupportScreen from './screens/SupportScreen';
+import ChatBox from './components/ChatBox';
 
 
 function App() {
@@ -136,6 +139,9 @@ function App() {
                               <li>
                                 <Link to = '/userlist'>Users</Link>
                               </li>
+                              <li>
+                                <Link to = '/support'>Support</Link>
+                              </li>
                             </ul>
                           </div>
                         )}
@@ -183,18 +189,22 @@ function App() {
                 <Route exact path = '/search/name/:name?' component = {SearchScreen} />
                 <Route exact path = '/search/category/:category' component = {SearchScreen} />
                 <Route exact path = '/search/category/:category/name/:name' component = {SearchScreen} />
-                <Route exact path = '/search/category/:category/name/:name/min/:min/max/:max/rating/:rating/order/:order' component = {SearchScreen} />
+                <Route exact path = '/search/category/:category/name/:name/min/:min/max/:max/rating/:rating/order/:order/pageNumber/:pageNumber' component = {SearchScreen} />
                 <PrivateRoute path = '/profile' component = {UserProfileScreen} />
                 <AdminRoute exact path = '/productlist' component = {ProductListScreen} />
+                <AdminRoute exact path = '/dashboard' component = {DashboardScreen} />
+                <AdminRoute exact path = '/productlist/pageNumber/:pageNumber' component = {ProductListScreen} />
                 <AdminRoute exact path = '/orderlist' component = {OrderListScreen} />
                 <AdminRoute path = '/userlist' component = {UserListScreen} />
                 <AdminRoute path = '/user/:id/edit' component = {UserEditScreen} />
+                <AdminRoute path = '/support' component = {SupportScreen} />
                 <SellerRoute path = '/productlist/seller' component = {ProductListScreen} />
                 <SellerRoute path = '/orderlist/seller' component = {OrderListScreen} />
                 <Route exact path = '/' component = {HomeScreen} /> 
               </main>
               <footer className = 'row center'>
-                  All rights reserved
+                {userInfo && !userInfo.isAdmin && <ChatBox userInfo = {userInfo} />}
+                All rights reserved
               </footer>
           </div>
       </div>

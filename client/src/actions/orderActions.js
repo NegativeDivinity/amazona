@@ -19,7 +19,10 @@ ORDER_DELETE_SUCCESS,
 ORDER_DELETE_FAIL,
 ORDER_DELIVER_FAIL,
 ORDER_DELIVER_REQUEST,
-ORDER_DELIVER_SUCCESS
+ORDER_DELIVER_SUCCESS,
+ORDER_SUMMARY_REQUEST,
+ORDER_SUMMARY_SUCCESS,
+ORDER_SUMMARY_FAIL
 } from "../constants/orderConstans"
 import {CART_EMPTY} from '../constants/cartConstant';
 import Axios from 'axios';
@@ -135,5 +138,22 @@ export const deliverOrder = (orderId) => (dispatch, getState) => {
     } catch (error) {
         const message = error.response && error.response.data.message? error.response.data.message : error.message;
         dispatch({type: ORDER_DELIVER_FAIL, payload: message});
+    }
+}
+
+export const summaryOrder = () => async (dispatch, getState) => {
+    dispatch({type: ORDER_SUMMARY_REQUEST});
+    const {
+        userSignin: {userInfo}
+    } = getState();
+
+    try {
+        const {data} = await Axios.get('/api/orders/summary', {
+            headers: {Authorization: `Bearer ${userInfo.token}`}
+        });
+        dispatch({type: ORDER_SUMMARY_SUCCESS, payload: data});
+    } catch (error) {
+        const message = error.response && error.response.data.message? error.response.data.message : error.message;
+        dispatch({type: ORDER_SUMMARY_FAIL, payload: message});
     }
 }

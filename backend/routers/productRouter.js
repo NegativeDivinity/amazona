@@ -7,6 +7,8 @@ import {isAdmin, isAuth, isAdminOrSeller} from '../utils.js';
 const productRouter = express.Router();
 
 productRouter.get('/', expressAsyncHandler(async (req, res) => {
+    const pageSize = 3;
+    const page = Number(req.query.pageNumber) || 1;
     const seller = req.query.seller || '';
     const name = req.query.name || '';
     const category = req.query.category || '';
@@ -20,8 +22,25 @@ productRouter.get('/', expressAsyncHandler(async (req, res) => {
     const priceFilter = min && max ? {price: {$gte: min, $lte: max}} : {};
     const ratingFilter = rating ? {rating: {$gte: rating}} : {};
     const sortOrder = order === 'lowest' ? {price: 1} : order === 'highest' ? {price: -1} : order === 'toprated' ? {rating: -1} : {_id: -1};
-    const products = await Product.find({...sellerFilter, ...nameFilter, ...categoryFilter, ...priceFilter, ...ratingFilter}).populate('seller', 'seller.name seller.logo').sort(sortOrder);
-    res.send(products);
+    const count = await Product.count({
+        ...sellerFilter,
+        ...nameFilter, 
+        ...categoryFilter, 
+        ...priceFilter, 
+        ...ratingFilter
+    });
+    const products = await Product.find({
+        ...sellerFilter,
+        ...nameFilter, 
+        ...categoryFilter, 
+        ...priceFilter, 
+        ...ratingFilter
+    })
+        .populate('seller', 'seller.name seller.logo')
+        .sort(sortOrder)
+        .skip(pageSize * (page - 1))
+        .limit(pageSize);
+    res.send({products, page, pages: Math.ceil(count / pageSize)});
 }));
 
 productRouter.get('/categories', expressAsyncHandler(async (req, res) => {
